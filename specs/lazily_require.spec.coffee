@@ -1,31 +1,29 @@
 require('./spec_helper')
 
-_ = require('underscore')
 path = require('path')
-createLazyLoader = require('../index')
+lazy = require('../index')
+LazyLoader = lazy.LazyLoader
 
 describe 'LazyLoader', ->
-  subject  = createLazyLoader path.join(__dirname, 'LazyLoaderData')
+  Fixtures  = lazy path.join(__dirname, 'fixtures')
 
-  it 'should create subject', ->
-    subject.should.be.ok
+  it 'should create fixtures', ->
+    expect(Fixtures).to.be.an.instanceOf LazyLoader 
 
-  it 'should require JavaScript', ->
-    subject.should.have.ownProperty 'JavaScript'
-    subject.__names.should.contain 'JavaScript'
-    subject.JavaScript.name.should.equal 'JavaScript'
+  it 'should require javascript', ->
+    Fixtures.should.have.ownProperty 'javascript'    
+    Fixtures.javascript.name.should.equal 'JavaScript'
 
-  it 'should require CoffeeScript', ->
-    subject.should.have.ownProperty 'CoffeeScript'
-    subject.__names.should.contain 'CoffeeScript'
-    subject.CoffeeScript.name.should.equal 'CoffeeScript'
+  it 'should require coffeescript', ->
+    Fixtures.should.have.ownProperty 'coffeescript'    
+    Fixtures.coffeescript.name.should.equal 'CoffeeScript'
+
+  it 'should ignore unsupported files', ->
+    Fixtures.should.not.have.ownProperty 'other'
 
   it 'should load lazily', ->
-    subject.Counter.get('Lazy').should.equal 0
-    subject.Lazy
-    subject.Counter.get('Lazy').should.equal 1
-    subject.Lazy
-    subject.Counter.get('Lazy').should.equal 1
-
-  it 'should populate __names', ->
-    subject.__names.should.have.length(4)
+    Fixtures.require_counter.get('lazy_test').should.equal 0
+    Fixtures.lazy_test
+    Fixtures.require_counter.get('lazy_test').should.equal 1
+    Fixtures.lazy_test
+    Fixtures.require_counter.get('lazy_test').should.equal 1

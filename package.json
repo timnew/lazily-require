@@ -1,0 +1,41 @@
+{
+  "name": "lazily-require",
+  "version": "0.1.0",
+  "description": "Require node.js files from folder lazily. Could be useful in application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/gulp mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timnew/lazily-require.git"
+  },
+  "keywords": [
+    "require",
+    "lazy",
+    "lazily",
+    "express",
+    "approot",
+    "folder",
+    "path",
+    "module"
+  ],
+  "author": "timnew <timnew.wti@gmail.com> (https://timnew.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timnew/lazily-require/issues"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coffee-script": "~1.7.1",
+    "del": "^0.1.1",
+    "gulp": "^3.8.6",
+    "gulp-bump": "^0.1.10",
+    "gulp-coffee": "^2.1.0",
+    "gulp-mocha": "^0.5.0",
+    "mocha": "^1.20.1",   
+    "yargs": "^1.2.6"
+  },
+  "homepage": "https://github.com/timnew/lazily-require"
+
+}

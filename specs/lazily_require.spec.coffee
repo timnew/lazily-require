@@ -1,6 +1,8 @@
+require('./spec_helper')
+
 _ = require('underscore')
 path = require('path')
-createLazyLoader = require('../../services/LazyLoader.coffee')
+createLazyLoader = require('../index')
 
 describe 'LazyLoader', ->
   subject  = createLazyLoader path.join(__dirname, 'LazyLoaderData')

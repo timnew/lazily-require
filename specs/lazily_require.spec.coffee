@@ -27,3 +27,10 @@ describe 'LazyLoader', ->
     Fixtures.require_counter.get('lazy_test').should.equal 1
     Fixtures.lazy_test
     Fixtures.require_counter.get('lazy_test').should.equal 1
+
+  it 'should require folder', ->
+    Fixtures.should.have.ownProperty 'folder'        
+    Fixtures.folder.should.be.an.instanceOf LazyLoader
+
+    Fixtures.folder.should.have.ownProperty 'nested'
+    Fixtures.folder.nested.should.equal 'Nested JavaScript'    

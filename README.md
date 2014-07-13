@@ -15,8 +15,14 @@ Install using [npm][npm-url].
 
 ```javascript
 
- 
-      
+var lazy = require('lazily-require');
+
+var Models = lazy('./modules');
+
+var User = Models.User;                   // equivalence to require('./modules/User')
+
+var Credential = Models.admin.Credential; // equivalence to require('./modules/admin/Credential')
+
 ```
 
 When used in conjunction of [approot](https://github.com/timnew/approot) to initialize the application environment.
@@ -34,8 +40,13 @@ global.Records = lazy appRoot.records();
 global.Models = lazy appRoot.models();
 global.Entities = lazy appRoot.entities();
 
-```
+// Reference as
 
+var user = new Models.User();
+
+Routers.admin.login.get(req, res);
+
+```
    
 ## License
 MIT

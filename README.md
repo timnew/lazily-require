@@ -42,9 +42,12 @@ global.Entities = lazy appRoot.entities();
 
 // Reference as
 
-var user = new Models.User();
+var user = Models.User;
+var user = new User();
 
-Routers.admin.login.get(req, res);
+var user2 = new Models.User();
+
+app.get('/admin/login', Routers.admin.login.get);
 
 ```
    
